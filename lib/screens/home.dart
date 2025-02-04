@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../widgets/custom_tile.dart';
 
@@ -12,7 +13,7 @@ class HomePage extends StatelessWidget {
         title: Text('OhMyStuff'),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () => context.go('/settings'),
             icon: Icon(Icons.menu_rounded),
           ),
         ],
