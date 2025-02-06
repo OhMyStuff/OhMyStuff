@@ -81,7 +81,7 @@ class HomePage extends StatelessWidget {
         child: Row(
           children: [
             IconButton(
-              onPressed: () {},
+              onPressed: () => context.go('/masterdata'),
               icon: Icon(Icons.format_list_bulleted_rounded),
             ),
             IconButton(
