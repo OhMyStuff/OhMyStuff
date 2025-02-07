@@ -85,7 +85,7 @@ class HomePage extends StatelessWidget {
               icon: Icon(Icons.format_list_bulleted_rounded),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () => context.go('/journal'),
               icon: Icon(Icons.restore_rounded),
             ),
             IconButton(
