@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'screens/about.dart';
 import 'screens/customize.dart';
 import 'screens/home.dart';
+import 'screens/journal.dart';
 import 'screens/masterdata.dart';
 import 'screens/settings.dart';
 
@@ -29,6 +30,10 @@ final router = GoRouter(
         GoRoute(
           path: 'masterdata',
           builder: (_, __) => MasterDataPage(),
+        ),
+        GoRoute(
+          path: 'journal',
+          builder: (_, __) => JournalPage(),
         ),
       ],
     ),
