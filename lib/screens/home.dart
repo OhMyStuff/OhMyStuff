@@ -11,7 +11,9 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('OhMyStuff'),
+        title: TextField(
+          decoration: InputDecoration(hintText: '搜索 产品、位置、条码'),
+        ),
         actions: [
           IconButton(
             onPressed: () => context.go('/settings'),
