@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'journal.dart';
 import 'overview.dart';
 import 'products.dart';
+import 'purchase.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -42,7 +43,7 @@ class HomePage extends StatelessWidget {
             OverviewPage(),
             ProductsPage(),
             Placeholder(),
-            Placeholder(),
+            PurchasePage(),
             Placeholder(),
             Placeholder(),
             Placeholder(),
