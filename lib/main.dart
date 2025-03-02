@@ -1,11 +1,20 @@
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'router.dart';
 import 'theme.dart';
 
 void main() {
   runApp(const MainApp());
+
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      systemNavigationBarColor: Colors.transparent,
+      statusBarColor: Colors.transparent,
+    ),
+  );
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
 }
 
 class MainApp extends StatelessWidget {
