@@ -20,7 +20,7 @@ class CustomTile extends StatelessWidget {
         width: 56,
         height: 56,
         decoration: BoxDecoration(
-          color: Colors.grey[200],
+          color: Theme.of(context).colorScheme.surfaceContainerHigh,
           image: null,
           borderRadius: BorderRadius.circular(8),
         ),
