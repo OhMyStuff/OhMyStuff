@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import 'consume.dart';
+import 'inventory.dart';
 import 'journal.dart';
 import 'overview.dart';
 import 'products.dart';
@@ -48,7 +49,7 @@ class HomePage extends StatelessWidget {
             PurchasePage(),
             ConsumePage(),
             TransferPage(),
-            Placeholder(),
+            InventoryPage(),
             JournalPage(),
           ],
         ),
