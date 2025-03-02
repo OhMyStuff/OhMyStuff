@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import 'consume.dart';
 import 'journal.dart';
 import 'overview.dart';
 import 'products.dart';
@@ -44,7 +45,7 @@ class HomePage extends StatelessWidget {
             ProductsPage(),
             Placeholder(),
             PurchasePage(),
-            Placeholder(),
+            ConsumePage(),
             Placeholder(),
             Placeholder(),
             JournalPage(),
