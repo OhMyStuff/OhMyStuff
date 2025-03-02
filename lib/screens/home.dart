@@ -6,6 +6,7 @@ import 'journal.dart';
 import 'overview.dart';
 import 'products.dart';
 import 'purchase.dart';
+import 'transfer.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -46,7 +47,7 @@ class HomePage extends StatelessWidget {
             Placeholder(),
             PurchasePage(),
             ConsumePage(),
-            Placeholder(),
+            TransferPage(),
             Placeholder(),
             JournalPage(),
           ],
