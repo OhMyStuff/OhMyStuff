@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'consume.dart';
 import 'inventory.dart';
 import 'journal.dart';
+import 'locations.dart';
 import 'overview.dart';
 import 'products.dart';
 import 'purchase.dart';
@@ -45,7 +46,7 @@ class HomePage extends StatelessWidget {
           children: [
             OverviewPage(),
             ProductsPage(),
-            Placeholder(),
+            LocationsPage(),
             PurchasePage(),
             ConsumePage(),
             TransferPage(),
