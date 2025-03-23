@@ -5,7 +5,6 @@ import 'consume.dart';
 import 'inventory.dart';
 import 'journal.dart';
 import 'locations.dart';
-import 'overview.dart';
 import 'products.dart';
 import 'purchase.dart';
 import 'transfer.dart';
@@ -16,7 +15,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 8,
+      length: 7,
       child: Scaffold(
         appBar: AppBar(
           title: Text('OhMyStuff'),
@@ -31,7 +30,6 @@ class HomePage extends StatelessWidget {
             indicatorSize: TabBarIndicatorSize.tab,
             tabAlignment: TabAlignment.start,
             tabs: [
-              Tab(text: '概览'),
               Tab(text: '库存'),
               Tab(text: '位置'),
               Tab(text: '入库'),
@@ -44,7 +42,6 @@ class HomePage extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            OverviewPage(),
             ProductsPage(),
             LocationsPage(),
             PurchasePage(),

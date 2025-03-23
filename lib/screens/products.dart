@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../widgets/custom_tile.dart';
 
@@ -12,7 +13,7 @@ class ProductsPage extends StatelessWidget {
         CustomTile(
           title: 'Soda',
           subtitle: [],
-          onTap: () {},
+          onTap: () => context.go('/product'),
         ),
         CustomTile(
           title: 'Cookies',
