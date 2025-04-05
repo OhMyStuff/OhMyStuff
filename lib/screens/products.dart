@@ -8,59 +8,64 @@ class ProductsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        CustomTile(
-          title: 'Soda',
-          subtitle: [],
-          onTap: () => context.go('/product'),
-        ),
-        CustomTile(
-          title: 'Cookies',
-          subtitle: [],
-          onTap: () {},
-        ),
-        CustomTile(
-          title: 'Chocolate',
-          subtitle: [],
-          onTap: () {},
-        ),
-        CustomTile(
-          title: 'Eggs',
-          subtitle: [],
-          onTap: () {},
-        ),
-        CustomTile(
-          title: 'Yogurt',
-          subtitle: [],
-          onTap: () {},
-        ),
-        CustomTile(
-          title: 'Noodles',
-          subtitle: [],
-          onTap: () {},
-        ),
-        CustomTile(
-          title: 'Cheese',
-          subtitle: [],
-          onTap: () {},
-        ),
-        CustomTile(
-          title: 'Cucumber',
-          subtitle: [],
-          onTap: () {},
-        ),
-        CustomTile(
-          title: 'Tomato',
-          subtitle: [],
-          onTap: () {},
-        ),
-        CustomTile(
-          title: 'Milk',
-          subtitle: [],
-          onTap: () {},
-        ),
-      ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Stocks'),
+      ),
+      body: ListView(
+        children: [
+          CustomTile(
+            title: 'Soda',
+            subtitle: [],
+            onTap: () => context.push('/product'),
+          ),
+          CustomTile(
+            title: 'Cookies',
+            subtitle: [],
+            onTap: () {},
+          ),
+          CustomTile(
+            title: 'Chocolate',
+            subtitle: [],
+            onTap: () {},
+          ),
+          CustomTile(
+            title: 'Eggs',
+            subtitle: [],
+            onTap: () {},
+          ),
+          CustomTile(
+            title: 'Yogurt',
+            subtitle: [],
+            onTap: () {},
+          ),
+          CustomTile(
+            title: 'Noodles',
+            subtitle: [],
+            onTap: () {},
+          ),
+          CustomTile(
+            title: 'Cheese',
+            subtitle: [],
+            onTap: () {},
+          ),
+          CustomTile(
+            title: 'Cucumber',
+            subtitle: [],
+            onTap: () {},
+          ),
+          CustomTile(
+            title: 'Tomato',
+            subtitle: [],
+            onTap: () {},
+          ),
+          CustomTile(
+            title: 'Milk',
+            subtitle: [],
+            onTap: () {},
+          ),
+        ],
+      ),
     );
   }
 }
