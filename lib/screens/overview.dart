@@ -9,6 +9,7 @@ class OverviewPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('OhMyStuff'),
       ),
+      body: Center(child: Text('(⁠・⁠o⁠・⁠)')),
     );
   }
 }
