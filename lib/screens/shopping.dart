@@ -15,9 +15,11 @@ class ShoppingPage extends StatelessWidget {
         children: [
           ShoppingTile(
             title: 'Soda',
+            isChecked: true,
           ),
           ShoppingTile(
             title: 'Eggs',
+            isChecked: true,
           ),
           ShoppingTile(
             title: 'Milk',
