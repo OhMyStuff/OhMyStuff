@@ -1,13 +1,17 @@
 import 'package:go_router/go_router.dart';
 
 import 'screens/about.dart';
+import 'screens/consume.dart';
 import 'screens/customize.dart';
+import 'screens/inventory.dart';
 import 'screens/journal.dart';
 import 'screens/overview.dart';
 import 'screens/product.dart';
 import 'screens/products.dart';
+import 'screens/purchase.dart';
 import 'screens/settings.dart';
 import 'screens/shopping.dart';
+import 'screens/transfer.dart';
 import 'widgets/custom_navigation.dart';
 
 final router = GoRouter(
@@ -23,6 +27,24 @@ final router = GoRouter(
             GoRoute(
               path: '/',
               builder: (_, __) => OverviewPage(),
+              routes: [
+                GoRoute(
+                  path: '/purchase',
+                  builder: (_, __) => PurchasePage(),
+                ),
+                GoRoute(
+                  path: '/consume',
+                  builder: (_, __) => ConsumePage(),
+                ),
+                GoRoute(
+                  path: '/transfer',
+                  builder: (_, __) => TransferPage(),
+                ),
+                GoRoute(
+                  path: '/inventory',
+                  builder: (_, __) => InventoryPage(),
+                ),
+              ],
             ),
           ],
         ),
