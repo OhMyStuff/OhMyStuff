@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../widgets/custom_tile.dart';
+import '../widgets/filter_bar.dart';
 
 class ProductsPage extends StatelessWidget {
   const ProductsPage({super.key});
@@ -11,59 +12,68 @@ class ProductsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Stocks'),
+        // bottom: FilterBar(),
       ),
-      body: ListView(
+      body: Column(
         children: [
-          CustomTile(
-            title: 'Soda',
-            subtitle: [],
-            onTap: () => context.push('/product'),
+          Expanded(
+            child: ListView(
+              children: [
+                CustomTile(
+                  title: 'Soda',
+                  subtitle: [],
+                  onTap: () => context.push('/product'),
+                ),
+                CustomTile(
+                  title: 'Cookies',
+                  subtitle: [],
+                  onTap: () {},
+                ),
+                CustomTile(
+                  title: 'Chocolate',
+                  subtitle: [],
+                  onTap: () {},
+                ),
+                CustomTile(
+                  title: 'Eggs',
+                  subtitle: [],
+                  onTap: () {},
+                ),
+                CustomTile(
+                  title: 'Yogurt',
+                  subtitle: [],
+                  onTap: () {},
+                ),
+                CustomTile(
+                  title: 'Noodles',
+                  subtitle: [],
+                  onTap: () {},
+                ),
+                CustomTile(
+                  title: 'Cheese',
+                  subtitle: [],
+                  onTap: () {},
+                ),
+                CustomTile(
+                  title: 'Cucumber',
+                  subtitle: [],
+                  onTap: () {},
+                ),
+                CustomTile(
+                  title: 'Tomato',
+                  subtitle: [],
+                  onTap: () {},
+                ),
+                CustomTile(
+                  title: 'Milk',
+                  subtitle: [],
+                  onTap: () {},
+                ),
+              ],
+            ),
           ),
-          CustomTile(
-            title: 'Cookies',
-            subtitle: [],
-            onTap: () {},
-          ),
-          CustomTile(
-            title: 'Chocolate',
-            subtitle: [],
-            onTap: () {},
-          ),
-          CustomTile(
-            title: 'Eggs',
-            subtitle: [],
-            onTap: () {},
-          ),
-          CustomTile(
-            title: 'Yogurt',
-            subtitle: [],
-            onTap: () {},
-          ),
-          CustomTile(
-            title: 'Noodles',
-            subtitle: [],
-            onTap: () {},
-          ),
-          CustomTile(
-            title: 'Cheese',
-            subtitle: [],
-            onTap: () {},
-          ),
-          CustomTile(
-            title: 'Cucumber',
-            subtitle: [],
-            onTap: () {},
-          ),
-          CustomTile(
-            title: 'Tomato',
-            subtitle: [],
-            onTap: () {},
-          ),
-          CustomTile(
-            title: 'Milk',
-            subtitle: [],
-            onTap: () {},
-          ),
+          Divider(height: 0),
+          FilterBar(),
         ],
       ),
     );
