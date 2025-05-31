@@ -8,21 +8,25 @@ class ShoppingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Shopping list'),
-      ),
-      body: ListView(
-        children: [
-          ShoppingTile(
-            title: 'Soda',
-            isChecked: true,
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar.large(
+            title: Text('Shopping list'),
           ),
-          ShoppingTile(
-            title: 'Eggs',
-            isChecked: true,
-          ),
-          ShoppingTile(
-            title: 'Milk',
+          SliverList.list(
+            children: [
+              ShoppingTile(
+                title: 'Soda',
+                isChecked: true,
+              ),
+              ShoppingTile(
+                title: 'Eggs',
+                isChecked: true,
+              ),
+              ShoppingTile(
+                title: 'Milk',
+              ),
+            ],
           ),
         ],
       ),

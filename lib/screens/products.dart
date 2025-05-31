@@ -10,72 +10,68 @@ class ProductsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Stocks'),
-        // bottom: FilterBar(),
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView(
-              children: [
-                CustomTile(
-                  title: 'Soda',
-                  subtitle: [],
-                  onTap: () => context.push('/product'),
-                ),
-                CustomTile(
-                  title: 'Cookies',
-                  subtitle: [],
-                  onTap: () {},
-                ),
-                CustomTile(
-                  title: 'Chocolate',
-                  subtitle: [],
-                  onTap: () {},
-                ),
-                CustomTile(
-                  title: 'Eggs',
-                  subtitle: [],
-                  onTap: () {},
-                ),
-                CustomTile(
-                  title: 'Yogurt',
-                  subtitle: [],
-                  onTap: () {},
-                ),
-                CustomTile(
-                  title: 'Noodles',
-                  subtitle: [],
-                  onTap: () {},
-                ),
-                CustomTile(
-                  title: 'Cheese',
-                  subtitle: [],
-                  onTap: () {},
-                ),
-                CustomTile(
-                  title: 'Cucumber',
-                  subtitle: [],
-                  onTap: () {},
-                ),
-                CustomTile(
-                  title: 'Tomato',
-                  subtitle: [],
-                  onTap: () {},
-                ),
-                CustomTile(
-                  title: 'Milk',
-                  subtitle: [],
-                  onTap: () {},
-                ),
-              ],
-            ),
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar.large(
+            title: Text('Stocks'),
           ),
-          Divider(height: 0),
-          FilterBar(),
+          SliverList.list(
+            children: [
+              CustomTile(
+                title: 'Soda',
+                subtitle: [],
+                onTap: () => context.push('/product'),
+              ),
+              CustomTile(
+                title: 'Cookies',
+                subtitle: [],
+                onTap: () {},
+              ),
+              CustomTile(
+                title: 'Chocolate',
+                subtitle: [],
+                onTap: () {},
+              ),
+              CustomTile(
+                title: 'Eggs',
+                subtitle: [],
+                onTap: () {},
+              ),
+              CustomTile(
+                title: 'Yogurt',
+                subtitle: [],
+                onTap: () {},
+              ),
+              CustomTile(
+                title: 'Noodles',
+                subtitle: [],
+                onTap: () {},
+              ),
+              CustomTile(
+                title: 'Cheese',
+                subtitle: [],
+                onTap: () {},
+              ),
+              CustomTile(
+                title: 'Cucumber',
+                subtitle: [],
+                onTap: () {},
+              ),
+              CustomTile(
+                title: 'Tomato',
+                subtitle: [],
+                onTap: () {},
+              ),
+              CustomTile(
+                title: 'Milk',
+                subtitle: [],
+                onTap: () {},
+              ),
+            ],
+          ),
         ],
       ),
+      bottomNavigationBar: FilterBar(),
     );
   }
 }
