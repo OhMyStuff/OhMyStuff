@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import 'screens/about.dart';
@@ -14,8 +15,11 @@ import 'screens/shopping.dart';
 import 'screens/transfer.dart';
 import 'widgets/custom_navigation.dart';
 
+final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
+
 final router = GoRouter(
   initialLocation: '/',
+  navigatorKey: _rootNavigatorKey,
   routes: [
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
@@ -30,18 +34,22 @@ final router = GoRouter(
               routes: [
                 GoRoute(
                   path: '/purchase',
+                  parentNavigatorKey: _rootNavigatorKey,
                   builder: (_, __) => PurchasePage(),
                 ),
                 GoRoute(
                   path: '/consume',
+                  parentNavigatorKey: _rootNavigatorKey,
                   builder: (_, __) => ConsumePage(),
                 ),
                 GoRoute(
                   path: '/transfer',
+                  parentNavigatorKey: _rootNavigatorKey,
                   builder: (_, __) => TransferPage(),
                 ),
                 GoRoute(
                   path: '/inventory',
+                  parentNavigatorKey: _rootNavigatorKey,
                   builder: (_, __) => InventoryPage(),
                 ),
               ],
@@ -84,10 +92,12 @@ final router = GoRouter(
               routes: [
                 GoRoute(
                   path: 'about',
+                  parentNavigatorKey: _rootNavigatorKey,
                   builder: (_, __) => AboutPage(),
                 ),
                 GoRoute(
                   path: 'customize',
+                  parentNavigatorKey: _rootNavigatorKey,
                   builder: (_, __) => CustomizePage(),
                 ),
               ],
