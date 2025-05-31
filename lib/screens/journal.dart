@@ -21,7 +21,6 @@ class JournalPage extends StatelessWidget {
                   Text('+1 Pack'),
                   Text('2025/02/01 12:00'),
                 ],
-                onTap: () {},
               ),
               JournalTile(
                 title: 'Chocolate',
@@ -29,7 +28,6 @@ class JournalPage extends StatelessWidget {
                   Text('+1 Pack'),
                   Text('2025/02/01 12:00'),
                 ],
-                onTap: () {},
               ),
               JournalTile(
                 title: 'Eggs',
@@ -37,7 +35,6 @@ class JournalPage extends StatelessWidget {
                   Text('-5 Pieces'),
                   Text('2025/02/01 10:05'),
                 ],
-                onTap: () {},
               ),
               JournalTile(
                 title: 'Eggs',
@@ -45,7 +42,6 @@ class JournalPage extends StatelessWidget {
                   Text('+10 Pieces'),
                   Text('2025/02/01 09:45'),
                 ],
-                onTap: () {},
               ),
               JournalTile(
                 title: 'Cookies',
@@ -53,7 +49,6 @@ class JournalPage extends StatelessWidget {
                   Text('-2 Packs'),
                   Text('2025/02/01 09:00'),
                 ],
-                onTap: () {},
               ),
               JournalTile(
                 title: 'Cheese',
@@ -61,7 +56,6 @@ class JournalPage extends StatelessWidget {
                   Text('-1 Pack'),
                   Text('2025/02/01 08:30'),
                 ],
-                onTap: () {},
               ),
             ],
           ),
