@@ -8,18 +8,14 @@ class OverviewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('OhMyStuff'),
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: Center(child: Text('(⁠・⁠o⁠・⁠)')),
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar.large(
+            title: Text('OhMyStuff'),
           ),
-          Divider(height: 0),
-          QuickActionBar(),
         ],
       ),
+      bottomNavigationBar: QuickActionBar(),
     );
   }
 }

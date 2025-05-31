@@ -8,58 +8,62 @@ class JournalPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Journal'),
-      ),
-      body: ListView(
-        children: [
-          JournalTile(
-            title: 'Cookies',
-            subtitle: [
-              Text('+1 Pack'),
-              Text('2025/02/01 12:00'),
-            ],
-            onTap: () {},
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar.large(
+            title: Text('Journal'),
           ),
-          JournalTile(
-            title: 'Chocolate',
-            subtitle: [
-              Text('+1 Pack'),
-              Text('2025/02/01 12:00'),
+          SliverList.list(
+            children: [
+              JournalTile(
+                title: 'Cookies',
+                subtitle: [
+                  Text('+1 Pack'),
+                  Text('2025/02/01 12:00'),
+                ],
+                onTap: () {},
+              ),
+              JournalTile(
+                title: 'Chocolate',
+                subtitle: [
+                  Text('+1 Pack'),
+                  Text('2025/02/01 12:00'),
+                ],
+                onTap: () {},
+              ),
+              JournalTile(
+                title: 'Eggs',
+                subtitle: [
+                  Text('-5 Pieces'),
+                  Text('2025/02/01 10:05'),
+                ],
+                onTap: () {},
+              ),
+              JournalTile(
+                title: 'Eggs',
+                subtitle: [
+                  Text('+10 Pieces'),
+                  Text('2025/02/01 09:45'),
+                ],
+                onTap: () {},
+              ),
+              JournalTile(
+                title: 'Cookies',
+                subtitle: [
+                  Text('-2 Packs'),
+                  Text('2025/02/01 09:00'),
+                ],
+                onTap: () {},
+              ),
+              JournalTile(
+                title: 'Cheese',
+                subtitle: [
+                  Text('-1 Pack'),
+                  Text('2025/02/01 08:30'),
+                ],
+                onTap: () {},
+              ),
             ],
-            onTap: () {},
-          ),
-          JournalTile(
-            title: 'Eggs',
-            subtitle: [
-              Text('-5 Pieces'),
-              Text('2025/02/01 10:05'),
-            ],
-            onTap: () {},
-          ),
-          JournalTile(
-            title: 'Eggs',
-            subtitle: [
-              Text('+10 Pieces'),
-              Text('2025/02/01 09:45'),
-            ],
-            onTap: () {},
-          ),
-          JournalTile(
-            title: 'Cookies',
-            subtitle: [
-              Text('-2 Packs'),
-              Text('2025/02/01 09:00'),
-            ],
-            onTap: () {},
-          ),
-          JournalTile(
-            title: 'Cheese',
-            subtitle: [
-              Text('-1 Pack'),
-              Text('2025/02/01 08:30'),
-            ],
-            onTap: () {},
           ),
         ],
       ),

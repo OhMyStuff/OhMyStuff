@@ -5,34 +5,40 @@ class FilterBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: [
-          SizedBox(width: 6),
-          TextButton.icon(
-            onPressed: () {},
-            icon: Text('Status'),
-            label: Icon(Icons.keyboard_arrow_up_rounded),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Divider(height: 0),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              SizedBox(width: 6),
+              TextButton.icon(
+                onPressed: () {},
+                icon: Text('Status'),
+                label: Icon(Icons.keyboard_arrow_up_rounded),
+              ),
+              TextButton.icon(
+                onPressed: () {},
+                icon: Text('Location'),
+                label: Icon(Icons.keyboard_arrow_up_rounded),
+              ),
+              VerticalDivider(),
+              TextButton.icon(
+                onPressed: () {},
+                icon: Text('Sort: Name'),
+                label: Icon(Icons.keyboard_arrow_up_rounded),
+              ),
+              TextButton.icon(
+                onPressed: () {},
+                icon: Text('Fields'),
+                label: Icon(Icons.keyboard_arrow_up_rounded),
+              ),
+            ],
           ),
-          TextButton.icon(
-            onPressed: () {},
-            icon: Text('Location'),
-            label: Icon(Icons.keyboard_arrow_up_rounded),
-          ),
-          VerticalDivider(),
-          TextButton.icon(
-            onPressed: () {},
-            icon: Text('Sort: Name'),
-            label: Icon(Icons.keyboard_arrow_up_rounded),
-          ),
-          TextButton.icon(
-            onPressed: () {},
-            icon: Text('Fields'),
-            label: Icon(Icons.keyboard_arrow_up_rounded),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
