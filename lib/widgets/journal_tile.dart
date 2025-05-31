@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
+import 'undo_transaction.dart';
+
 class JournalTile extends StatelessWidget {
-  const JournalTile(
-      {super.key, required this.title, required this.subtitle, this.onTap});
+  const JournalTile({super.key, required this.title, required this.subtitle});
 
   final String title;
   final List<Widget> subtitle;
-  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,10 @@ class JournalTile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: subtitle,
       ),
-      onTap: onTap,
+      onLongPress: () => showDialog(
+        context: context,
+        builder: (_) => UndoTransaction(),
+      ),
     );
   }
 }
