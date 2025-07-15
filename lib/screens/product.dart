@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/quick_action_bar.dart';
-
 class ProductPage extends StatelessWidget {
   const ProductPage({super.key});
 
@@ -43,7 +41,6 @@ class ProductPage extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: QuickActionBar(),
     );
   }
 }
