@@ -1,4 +1,4 @@
-package com.ohmystuff.ohmystuff
+package hello.ohmystuff.app
 
 import io.flutter.embedding.android.FlutterActivity
 
