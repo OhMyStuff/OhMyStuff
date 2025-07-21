@@ -7,22 +7,20 @@ class ShoppingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView(
-        children: [
-          ShoppingTile(
-            title: 'Soda',
-            isChecked: true,
-          ),
-          ShoppingTile(
-            title: 'Eggs',
-            isChecked: true,
-          ),
-          ShoppingTile(
-            title: 'Milk',
-          ),
-        ],
-      ),
+    return ListView(
+      children: [
+        ShoppingTile(
+          title: 'Soda',
+          isChecked: true,
+        ),
+        ShoppingTile(
+          title: 'Eggs',
+          isChecked: true,
+        ),
+        ShoppingTile(
+          title: 'Milk',
+        ),
+      ],
     );
   }
 }

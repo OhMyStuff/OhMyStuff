@@ -21,7 +21,7 @@ class CustomNavigation extends HookWidget {
 
     useEffect(() {
       if (tabController.index != navigationShell.currentIndex) {
-        tabController.index = navigationShell.currentIndex;
+        tabController.animateTo(navigationShell.currentIndex);
       }
 
       return null;
@@ -62,6 +62,7 @@ class CustomNavigation extends HookWidget {
       ),
       body: TabBarView(
         controller: tabController,
+        physics: NeverScrollableScrollPhysics(),
         children: children,
       ),
       floatingActionButton: FloatingActionButton(
@@ -79,6 +80,7 @@ class CustomNavigation extends HookWidget {
           ],
         ),
       ),
+      resizeToAvoidBottomInset: false,
     );
   }
 }
