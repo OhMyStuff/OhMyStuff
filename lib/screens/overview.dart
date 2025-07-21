@@ -6,18 +6,16 @@ class OverviewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text('🚧'),
-            TextButton(
-              onPressed: () => context.go("/shopping"),
-              child: Text('context.go("/shopping")'),
-            ),
-          ],
-        ),
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text('🚧'),
+          TextButton(
+            onPressed: () => context.go("/shopping"),
+            child: Text('context.go("/shopping")'),
+          ),
+        ],
       ),
     );
   }

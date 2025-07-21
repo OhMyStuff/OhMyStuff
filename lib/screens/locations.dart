@@ -7,23 +7,21 @@ class LocationsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView(
-        children: [
-          LocationTile(
-            title: 'Living Room',
-          ),
-          LocationTile(
-            title: 'Bedroom',
-          ),
-          LocationTile(
-            title: 'Kitchen',
-          ),
-          LocationTile(
-            title: 'Balcony',
-          ),
-        ],
-      ),
+    return ListView(
+      children: [
+        LocationTile(
+          title: 'Living Room',
+        ),
+        LocationTile(
+          title: 'Bedroom',
+        ),
+        LocationTile(
+          title: 'Kitchen',
+        ),
+        LocationTile(
+          title: 'Balcony',
+        ),
+      ],
     );
   }
 }
