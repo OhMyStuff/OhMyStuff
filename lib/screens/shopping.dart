@@ -7,20 +7,48 @@ class ShoppingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        ShoppingTile(
-          title: 'Soda',
-          isChecked: true,
+    return Scaffold(
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar.large(
+            title: Text('购物清单'),
+          ),
+          SliverList.list(
+            children: [
+              ShoppingTile(
+                title: 'Soda',
+                isChecked: true,
+              ),
+              ShoppingTile(
+                title: 'Eggs',
+                isChecked: true,
+              ),
+              ShoppingTile(
+                title: 'Milk',
+              ),
+            ],
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add_rounded),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endContained,
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          children: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.search_rounded),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.storefront_outlined),
+            ),
+          ],
         ),
-        ShoppingTile(
-          title: 'Eggs',
-          isChecked: true,
-        ),
-        ShoppingTile(
-          title: 'Milk',
-        ),
-      ],
+      ),
     );
   }
 }
