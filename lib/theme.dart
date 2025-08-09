@@ -18,5 +18,16 @@ ThemeData getTheme(ColorScheme? dynamicColor, Brightness brightness) {
         TargetPlatform.linux: CupertinoPageTransitionsBuilder(),
       },
     ),
+    appBarTheme: AppBarTheme(
+      backgroundColor: colorScheme.surfaceContainer,
+      surfaceTintColor: Colors.transparent,
+    ),
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      elevation: 0,
+      focusElevation: 0,
+      hoverElevation: 0,
+      highlightElevation: 0,
+      disabledElevation: 0,
+    ),
   );
 }

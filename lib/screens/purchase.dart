@@ -1,76 +1,69 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/custom_text_field.dart';
+
 class PurchasePage extends StatelessWidget {
   const PurchasePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-          child: TextField(
-            decoration: InputDecoration(
-              icon: Icon(Icons.widgets_rounded),
-              labelText: '物品',
-              suffixIcon: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.edit_outlined),
-              ),
-              filled: true,
-            ),
+    return Scaffold(
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar.large(
+            title: Text('消耗物品（快速操作）'),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-          child: TextField(
-            decoration: InputDecoration(
-              icon: Icon(Icons.category_rounded),
-              labelText: '数量',
-              suffixIcon: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.keyboard_arrow_up_rounded),
+          SliverPadding(
+            padding: const EdgeInsets.all(16.0),
+            sliver: SliverList.list(
+              children: [
+                SizedBox(height: 8),
+                CustomTextField(),
+                Divider(
+                  indent: 64.0,
+                  endIndent: 64.0,
+                ),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 4.0),
+                    child: FilledButton.tonalIcon(
+                      onPressed: () {},
+                      icon: Icon(Icons.check_rounded),
+                      label: Text('出库 3 件物品'),
+                    ),
                   ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.keyboard_arrow_down_rounded),
-                  ),
-                ],
-              ),
-              filled: true,
+                ),
+              ],
             ),
           ),
-        ),
-        ListTile(
-          leading: Icon(Icons.calendar_month_rounded),
-          title: Text('到期日期'),
-          subtitle: Text('2025年3月1日'),
-          onTap: () {},
-        ),
-        ListTile(
-          leading: Icon(Icons.location_on_rounded),
-          title: Text('位置'),
-          subtitle: Text('未选择'),
-          onTap: () {},
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-          child: TextField(
-            decoration: InputDecoration(
-              icon: Icon(Icons.notes_rounded),
-              labelText: '备注',
-              suffixIcon: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.edit_outlined),
-              ),
-              filled: true,
+        ],
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {},
+        icon: Icon(Icons.widgets_rounded),
+        label: Text('选择物品'),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endContained,
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          children: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.qr_code_scanner_rounded),
             ),
-          ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.nfc_rounded),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.auto_awesome_outlined),
+            ),
+          ],
         ),
-      ],
+      ),
+      resizeToAvoidBottomInset: false,
     );
   }
 }
