@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../widgets/custom_text_field.dart';
 
-class PurchasePage extends StatelessWidget {
-  const PurchasePage({super.key});
+class CountPage extends StatelessWidget {
+  const CountPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class PurchasePage extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar.large(
-            title: Text('购买物品（快速操作）'),
+            title: const Text('清点物品'),
           ),
           SliverList.list(
             children: [
@@ -36,36 +36,13 @@ class PurchasePage extends StatelessWidget {
                   ],
                 ),
               ),
-              ListTile(
-                leading: Icon(Icons.location_on_rounded),
-                title: Text('位置'),
-                subtitle: Text('未选择'),
-                onTap: () {},
-              ),
-              CustomTextField(
-                leading: Icon(Icons.money_rounded),
-                label: '价格 (CNY)',
-                trailing: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.keyboard_arrow_up_rounded),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.keyboard_arrow_down_rounded),
-                    ),
-                  ],
-                ),
-              ),
             ],
           ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: Icon(Icons.shopping_cart_outlined),
+        child: Icon(Icons.checklist_rounded),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endContained,
       bottomNavigationBar: BottomAppBar(
@@ -81,7 +58,7 @@ class PurchasePage extends StatelessWidget {
             ),
             IconButton(
               onPressed: () {},
-              icon: Icon(Icons.auto_awesome_outlined),
+              icon: Icon(Icons.clear_rounded),
             ),
           ],
         ),

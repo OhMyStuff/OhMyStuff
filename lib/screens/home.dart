@@ -42,17 +42,17 @@ class HomePage extends StatelessWidget {
               ListTile(
                 leading: Icon(Icons.arrow_outward_rounded),
                 title: Text('Consume'),
-                onTap: () => context.push('/purchase'),
+                onTap: () => context.push('/consume'),
               ),
               ListTile(
                 leading: Icon(Icons.swap_horiz_rounded),
                 title: Text('Transfer'),
-                onTap: () => context.push('/purchase'),
+                onTap: () => context.push('/transfer'),
               ),
               ListTile(
                 leading: Icon(Icons.checklist_rounded),
                 title: Text('Count'),
-                onTap: () => context.push('/purchase'),
+                onTap: () => context.push('/count'),
               ),
               ListTile(
                 leading: Icon(Icons.check_rounded),
@@ -96,6 +96,10 @@ class HomePage extends StatelessWidget {
             IconButton(
               onPressed: () {},
               icon: Icon(Icons.search_rounded),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.auto_awesome_outlined),
             ),
           ],
         ),

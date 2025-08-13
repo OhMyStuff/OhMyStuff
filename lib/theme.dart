@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 ThemeData getTheme(ColorScheme? dynamicColor, Brightness brightness) {
   final colorScheme = ColorScheme.fromSeed(
-    seedColor: dynamicColor?.primary ?? Colors.teal,
+    seedColor: Colors.teal,
     brightness: brightness,
   );
 
@@ -28,6 +28,9 @@ ThemeData getTheme(ColorScheme? dynamicColor, Brightness brightness) {
       hoverElevation: 0,
       highlightElevation: 0,
       disabledElevation: 0,
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      filled: true,
     ),
   );
 }

@@ -1,55 +1,41 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key});
+  const CustomTextField({
+    super.key,
+    this.leading,
+    this.label,
+    this.trailing,
+  });
+
+  final Widget? leading;
+  final String? label;
+  final Widget? trailing;
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-    return Card.filled(
-      color: colorScheme.surfaceContainer,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            TextField(
-              decoration: InputDecoration(
-                labelText: '物品名称',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                filled: true,
-                fillColor: colorScheme.surfaceContainerHigh,
-              ),
-            ),
-            SizedBox(height: 8.0),
-            Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      labelText: '数量',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      filled: true,
-                      fillColor: colorScheme.surfaceContainerHigh,
-                    ),
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.keyboard_arrow_up_outlined),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.keyboard_arrow_down_outlined),
-                ),
-              ],
-            ),
-          ],
-        ),
+    Widget result = TextField(
+      decoration: InputDecoration(
+        icon: leading,
+        labelText: label,
       ),
     );
+
+    if (trailing != null) {
+      result = Row(
+        children: [
+          Expanded(child: result),
+          SizedBox(width: 8),
+          trailing!,
+        ],
+      );
+    }
+
+    result = Padding(
+      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      child: result,
+    );
+
+    return result;
   }
 }
