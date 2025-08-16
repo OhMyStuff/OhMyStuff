@@ -6,6 +6,7 @@ import 'screens/count.dart';
 import 'screens/product_edit.dart';
 import 'screens/home.dart';
 import 'screens/journal.dart';
+import 'screens/shopping_list_edit.dart';
 import 'screens/stocks.dart';
 import 'screens/purchase.dart';
 import 'screens/customize.dart';
@@ -50,6 +51,12 @@ final router = GoRouter(
         GoRoute(
           path: 'shopping',
           builder: (_, __) => ShoppingPage(),
+          routes: [
+            GoRoute(
+              path: 'new',
+              builder: (_, __) => ShoppingListEditPage(),
+            ),
+          ],
         ),
         GoRoute(
           path: 'purchase',
