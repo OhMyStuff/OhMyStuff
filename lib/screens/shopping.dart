@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../widgets/shopping_tile.dart';
 
@@ -31,7 +32,7 @@ class ShoppingPage extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () => context.push('/shopping/new'),
         child: Icon(Icons.add_rounded),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endContained,
