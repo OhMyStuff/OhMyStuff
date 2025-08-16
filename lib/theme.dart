@@ -29,8 +29,5 @@ ThemeData getTheme(ColorScheme? dynamicColor, Brightness brightness) {
       highlightElevation: 0,
       disabledElevation: 0,
     ),
-    inputDecorationTheme: InputDecorationTheme(
-      filled: true,
-    ),
   );
 }

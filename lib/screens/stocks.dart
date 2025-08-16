@@ -77,6 +77,10 @@ class StocksPage extends StatelessWidget {
               onPressed: () {},
               icon: Icon(Icons.search_rounded),
             ),
+            IconButton(
+              onPressed: () => context.push('/products/new'),
+              icon: Icon(Icons.add_rounded),
+            ),
           ],
         ),
       ),

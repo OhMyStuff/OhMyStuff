@@ -3,12 +3,13 @@ import 'package:go_router/go_router.dart';
 import 'screens/about.dart';
 import 'screens/consume.dart';
 import 'screens/count.dart';
+import 'screens/product_edit.dart';
 import 'screens/home.dart';
 import 'screens/journal.dart';
 import 'screens/stocks.dart';
 import 'screens/purchase.dart';
 import 'screens/customize.dart';
-import 'screens/product.dart';
+import 'screens/stock.dart';
 import 'screens/settings.dart';
 import 'screens/shopping.dart';
 import 'screens/transfer.dart';
@@ -32,7 +33,17 @@ final router = GoRouter(
           routes: [
             GoRoute(
               path: 'soda',
-              builder: (_, __) => ProductPage(),
+              builder: (_, __) => StockPage(),
+            ),
+          ],
+        ),
+        GoRoute(
+          path: 'products',
+          builder: (_, __) => StocksPage(),
+          routes: [
+            GoRoute(
+              path: 'new',
+              builder: (_, __) => ProductEditPage(),
             ),
           ],
         ),

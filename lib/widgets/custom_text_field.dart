@@ -6,11 +6,13 @@ class CustomTextField extends StatelessWidget {
     this.leading,
     this.label,
     this.trailing,
+    this.suffix,
   });
 
   final Widget? leading;
   final String? label;
   final Widget? trailing;
+  final Widget? suffix;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +20,8 @@ class CustomTextField extends StatelessWidget {
       decoration: InputDecoration(
         icon: leading,
         labelText: label,
+        suffixIcon: suffix,
+        filled: true,
       ),
     );
 
