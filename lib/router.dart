@@ -1,6 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import 'screens/about.dart';
+import 'screens/backup.dart';
 import 'screens/consume.dart';
 import 'screens/count.dart';
 import 'screens/product_edit.dart';
@@ -83,12 +85,22 @@ final router = GoRouter(
           builder: (_, __) => SettingsPage(),
           routes: [
             GoRoute(
-              path: 'about',
-              builder: (_, __) => AboutPage(),
-            ),
-            GoRoute(
               path: 'customize',
               builder: (_, __) => CustomizePage(),
+            ),
+            GoRoute(
+              path: 'backup',
+              builder: (_, __) => BackupPage(),
+            ),
+            GoRoute(
+              path: 'about',
+              builder: (_, __) => AboutPage(),
+              routes: [
+                GoRoute(
+                  path: 'license',
+                  builder: (_, __) => LicensePage(),
+                ),
+              ],
             ),
           ],
         ),

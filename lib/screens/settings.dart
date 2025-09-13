@@ -21,6 +21,12 @@ class SettingsPage extends StatelessWidget {
                 onTap: () => context.push('/settings/customize'),
               ),
               ListTile(
+                leading: Icon(Icons.folder_rounded),
+                title: Text('备份与恢复'),
+                subtitle: Text('云同步、本地备份'),
+                onTap: () => context.push('/settings/backup'),
+              ),
+              ListTile(
                 leading: Icon(Icons.info_rounded),
                 title: Text('关于'),
                 subtitle: Text('版本、意见反馈、自动更新'),
