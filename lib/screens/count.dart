@@ -16,11 +16,9 @@ class CountPage extends StatelessWidget {
           SliverList.list(
             children: [
               CustomTextField(
-                leading: Icon(Icons.widgets_rounded),
                 label: '物品名称',
               ),
               CustomTextField(
-                leading: Icon(Icons.category_rounded),
                 label: '数量',
                 trailing: Row(
                   mainAxisSize: MainAxisSize.min,
