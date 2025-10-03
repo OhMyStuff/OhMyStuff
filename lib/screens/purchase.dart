@@ -16,11 +16,9 @@ class PurchasePage extends StatelessWidget {
           SliverList.list(
             children: [
               CustomTextField(
-                leading: Icon(Icons.widgets_rounded),
                 label: '物品名称',
               ),
               CustomTextField(
-                leading: Icon(Icons.category_rounded),
                 label: '数量',
                 trailing: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -36,14 +34,39 @@ class PurchasePage extends StatelessWidget {
                   ],
                 ),
               ),
-              ListTile(
-                leading: Icon(Icons.location_on_rounded),
-                title: Text('位置'),
-                subtitle: Text('未选择'),
-                onTap: () {},
+              CustomTextField(
+                label: '位置',
+                trailing: IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.keyboard_arrow_down_rounded),
+                ),
+                bottom: Wrap(
+                  spacing: 4,
+                  children: [
+                    ChoiceChip(
+                      label: Text('Kitchen'),
+                      selected: true,
+                      onSelected: (value) {},
+                    ),
+                    ChoiceChip(
+                      label: Text('Bedroom'),
+                      selected: false,
+                      onSelected: (value) {},
+                    ),
+                    ChoiceChip(
+                      label: Text('Balcony'),
+                      selected: false,
+                      onSelected: (value) {},
+                    ),
+                    ChoiceChip(
+                      label: Text('Living Room'),
+                      selected: false,
+                      onSelected: (value) {},
+                    ),
+                  ],
+                ),
               ),
               CustomTextField(
-                leading: Icon(Icons.money_rounded),
                 label: '价格 (CNY)',
                 trailing: Row(
                   mainAxisSize: MainAxisSize.min,

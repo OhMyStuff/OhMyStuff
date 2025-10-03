@@ -16,15 +16,9 @@ class ShoppingListEditPage extends StatelessWidget {
           SliverList.list(
             children: [
               CustomTextField(
-                leading: Icon(Icons.widgets_rounded),
                 label: '物品名称',
-                suffix: IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.qr_code_scanner_rounded),
-                ),
               ),
               CustomTextField(
-                leading: Icon(Icons.category_rounded),
                 label: '数量',
                 trailing: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -41,7 +35,6 @@ class ShoppingListEditPage extends StatelessWidget {
                 ),
               ),
               CustomTextField(
-                leading: Icon(Icons.notes_rounded),
                 label: '备注',
               ),
             ],

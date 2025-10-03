@@ -7,12 +7,14 @@ class CustomTextField extends StatelessWidget {
     this.label,
     this.trailing,
     this.suffix,
+    this.bottom,
   });
 
   final Widget? leading;
   final String? label;
   final Widget? trailing;
   final Widget? suffix;
+  final Widget? bottom;
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +33,18 @@ class CustomTextField extends StatelessWidget {
           Expanded(child: result),
           SizedBox(width: 8),
           trailing!,
+          SizedBox(width: 8),
+        ],
+      );
+    }
+
+    if (bottom != null) {
+      result = Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          result,
+          SizedBox(height: 4),
+          bottom!,
         ],
       );
     }
