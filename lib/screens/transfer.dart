@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/chips_text_field.dart';
 import '../widgets/custom_text_field.dart';
+import '../widgets/number_text_field.dart';
 
 class TransferPage extends StatelessWidget {
   const TransferPage({super.key});
@@ -16,87 +18,58 @@ class TransferPage extends StatelessWidget {
           SliverList.list(
             children: [
               CustomTextField(
-                label: '物品名称',
+                label: '物品名称（必填）',
+                defaultValue: '测试产品',
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Required';
+                  }
+                  return null;
+                },
+                onSaved: (value) {
+                  print('[OMS] $value');
+                },
               ),
-              CustomTextField(
+              NumberTextField(
                 label: '数量',
-                trailing: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.keyboard_arrow_up_rounded),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.keyboard_arrow_down_rounded),
-                    ),
-                  ],
-                ),
+                defaultValue: 1.0,
+                onSaved: (value) {
+                  print('[OMS] $value');
+                },
               ),
-              CustomTextField(
+              ChipsTextField(
                 label: '从位置',
-                trailing: IconButton(
+                trailing: IconButton.filledTonal(
                   onPressed: () {},
-                  icon: Icon(Icons.keyboard_arrow_down_rounded),
+                  icon: Icon(Icons.map_outlined),
                 ),
-                bottom: Wrap(
-                  spacing: 4,
-                  children: [
-                    ChoiceChip(
-                      label: Text('Kitchen'),
-                      selected: true,
-                      onSelected: (value) {},
-                    ),
-                    ChoiceChip(
-                      label: Text('Bedroom'),
-                      selected: false,
-                      onSelected: (value) {},
-                    ),
-                    ChoiceChip(
-                      label: Text('Balcony'),
-                      selected: false,
-                      onSelected: (value) {},
-                    ),
-                    ChoiceChip(
-                      label: Text('Living Room'),
-                      selected: false,
-                      onSelected: (value) {},
-                    ),
-                  ],
-                ),
+                defaultChip: 0,
+                chips: {
+                  0: 'Kitchen',
+                  1: 'Bedroom',
+                  2: 'Balcony',
+                  3: 'Living Room',
+                },
+                onSaved: (value) {
+                  print('[OMS] $value');
+                },
               ),
-              CustomTextField(
+              ChipsTextField(
                 label: '到位置',
-                trailing: IconButton(
+                trailing: IconButton.filledTonal(
                   onPressed: () {},
-                  icon: Icon(Icons.keyboard_arrow_down_rounded),
+                  icon: Icon(Icons.map_outlined),
                 ),
-                bottom: Wrap(
-                  spacing: 4,
-                  children: [
-                    ChoiceChip(
-                      label: Text('Kitchen'),
-                      selected: true,
-                      onSelected: (value) {},
-                    ),
-                    ChoiceChip(
-                      label: Text('Bedroom'),
-                      selected: false,
-                      onSelected: (value) {},
-                    ),
-                    ChoiceChip(
-                      label: Text('Balcony'),
-                      selected: false,
-                      onSelected: (value) {},
-                    ),
-                    ChoiceChip(
-                      label: Text('Living Room'),
-                      selected: false,
-                      onSelected: (value) {},
-                    ),
-                  ],
-                ),
+                defaultChip: 0,
+                chips: {
+                  0: 'Kitchen',
+                  1: 'Bedroom',
+                  2: 'Balcony',
+                  3: 'Living Room',
+                },
+                onSaved: (value) {
+                  print('[OMS] $value');
+                },
               ),
             ],
           ),

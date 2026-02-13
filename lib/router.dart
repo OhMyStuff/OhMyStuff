@@ -5,7 +5,8 @@ import 'screens/about.dart';
 import 'screens/backup.dart';
 import 'screens/consume.dart';
 import 'screens/count.dart';
-import 'screens/product_edit.dart';
+import 'screens/debug.dart';
+import 'screens/product_form.dart';
 import 'screens/home.dart';
 import 'screens/journal.dart';
 import 'screens/shopping_list_edit.dart';
@@ -38,6 +39,13 @@ final router = GoRouter(
               path: 'soda',
               builder: (_, __) => StockPage(),
             ),
+            GoRoute(
+              path: ':id',
+              builder: (_, state) {
+                final id = int.parse(state.pathParameters['id']!);
+                return StockPage(id: id);
+              },
+            ),
           ],
         ),
         GoRoute(
@@ -46,7 +54,7 @@ final router = GoRouter(
           routes: [
             GoRoute(
               path: 'new',
-              builder: (_, __) => ProductEditPage(),
+              builder: (_, __) => ProductFormPage(),
             ),
           ],
         ),
@@ -101,6 +109,10 @@ final router = GoRouter(
                   builder: (_, __) => LicensePage(),
                 ),
               ],
+            ),
+            GoRoute(
+              path: 'debug',
+              builder: (_, __) => DebugPage(),
             ),
           ],
         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/custom_text_field.dart';
+import '../widgets/number_text_field.dart';
 
 class ShoppingListEditPage extends StatelessWidget {
   const ShoppingListEditPage({super.key});
@@ -16,26 +17,31 @@ class ShoppingListEditPage extends StatelessWidget {
           SliverList.list(
             children: [
               CustomTextField(
-                label: '物品名称',
+                label: '物品名称（必填）',
+                defaultValue: '测试产品',
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Required';
+                  }
+                  return null;
+                },
+                onSaved: (value) {
+                  print('[OMS] $value');
+                },
               ),
-              CustomTextField(
+              NumberTextField(
                 label: '数量',
-                trailing: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.keyboard_arrow_up_rounded),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.keyboard_arrow_down_rounded),
-                    ),
-                  ],
-                ),
+                defaultValue: 1.0,
+                onSaved: (value) {
+                  print('[OMS] $value');
+                },
               ),
               CustomTextField(
                 label: '备注',
+                defaultValue: '这是一段描述',
+                onSaved: (value) {
+                  print('[OMS] $value');
+                },
               ),
             ],
           ),

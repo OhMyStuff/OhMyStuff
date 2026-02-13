@@ -1,30 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
-    this.leading,
+    this.controller,
     this.label,
+    this.defaultValue,
+    this.keyboardType,
+    this.inputFormatters,
     this.trailing,
-    this.suffix,
+    this.error,
     this.bottom,
+    this.validator,
+    this.onChanged,
+    this.onSaved,
   });
 
-  final Widget? leading;
+  final TextEditingController? controller;
   final String? label;
+  final String? defaultValue;
+  final TextInputType? keyboardType;
+  final List<TextInputFormatter>? inputFormatters;
   final Widget? trailing;
-  final Widget? suffix;
+  final String? error;
   final Widget? bottom;
+  final String? Function(String? value)? validator;
+  final void Function(String value)? onChanged;
+  final void Function(String? value)? onSaved;
 
   @override
   Widget build(BuildContext context) {
-    Widget result = TextField(
+    Widget result = TextFormField(
+      controller: controller,
+      initialValue: defaultValue,
       decoration: InputDecoration(
-        icon: leading,
         labelText: label,
-        suffixIcon: suffix,
+        errorText: error,
         filled: true,
       ),
+      validator: validator,
+      keyboardType: keyboardType,
+      inputFormatters: inputFormatters,
+      onChanged: onChanged,
+      onSaved: onSaved,
     );
 
     if (trailing != null) {
