@@ -11,6 +11,12 @@ class SettingsPage extends StatelessWidget {
         slivers: [
           SliverAppBar.large(
             title: Text('Settings'),
+            actions: [
+              IconButton(
+                onPressed: () => context.push('/settings/debug'),
+                icon: Icon(Icons.code_rounded),
+              ),
+            ],
           ),
           SliverList.list(
             children: [

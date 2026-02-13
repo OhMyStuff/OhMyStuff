@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class StockPage extends StatelessWidget {
-  const StockPage({super.key});
+  const StockPage({
+    super.key,
+    this.id,
+  });
+
+  final int? id;
 
   @override
   Widget build(BuildContext context) {
