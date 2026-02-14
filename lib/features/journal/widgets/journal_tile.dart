@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'undo_transaction.dart';
+import '../../../core/widgets/undo_transaction.dart';
 
 class JournalTile extends StatelessWidget {
   const JournalTile({super.key, required this.title, required this.subtitle});

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 class CustomTile extends StatelessWidget {
-  const CustomTile(
-      {super.key,
-      required this.title,
-      required this.subtitle,
-      this.imagePath,
-      this.onTap});
+  const CustomTile({
+    super.key,
+    required this.title,
+    required this.subtitle,
+    this.imagePath,
+    this.onTap,
+  });
 
   final String title;
   final List<Widget> subtitle;

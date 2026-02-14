@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/custom_text_field.dart';
-import '../widgets/number_text_field.dart';
+import '../../../core/widgets/chips_text_field.dart';
+import '../../../core/widgets/custom_text_field.dart';
+import '../../../core/widgets/number_text_field.dart';
 
-class ShoppingListEditPage extends StatelessWidget {
-  const ShoppingListEditPage({super.key});
+class ConsumePage extends StatelessWidget {
+  const ConsumePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,7 @@ class ShoppingListEditPage extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar.large(
-            title: Text('新建条目'),
+            title: Text('消耗物品'),
           ),
           SliverList.list(
             children: [
@@ -36,9 +37,19 @@ class ShoppingListEditPage extends StatelessWidget {
                   print('[OMS] $value');
                 },
               ),
-              CustomTextField(
-                label: '备注',
-                defaultValue: '这是一段描述',
+              ChipsTextField(
+                label: '位置',
+                trailing: IconButton.filledTonal(
+                  onPressed: () {},
+                  icon: Icon(Icons.map_outlined),
+                ),
+                defaultChip: 0,
+                chips: {
+                  0: 'Kitchen',
+                  1: 'Bedroom',
+                  2: 'Balcony',
+                  3: 'Living Room',
+                },
                 onSaved: (value) {
                   print('[OMS] $value');
                 },
@@ -49,7 +60,7 @@ class ShoppingListEditPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: Icon(Icons.save_rounded),
+        child: Icon(Icons.arrow_outward_rounded),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endContained,
       bottomNavigationBar: BottomAppBar(
@@ -57,7 +68,15 @@ class ShoppingListEditPage extends StatelessWidget {
           children: [
             IconButton(
               onPressed: () {},
-              icon: Icon(Icons.delete_rounded),
+              icon: Icon(Icons.qr_code_scanner_rounded),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.nfc_rounded),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.clear_rounded),
             ),
           ],
         ),

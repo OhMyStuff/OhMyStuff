@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../data/local/models/location.dart';
-import '../data/local/models/product.dart';
-import '../data/local/store.dart';
+import '../../../core/data/local/models/location.dart';
+import '../../../core/data/local/models/product.dart';
+import '../../../core/data/local/store.dart';
 
 class DebugPage extends ConsumerWidget {
   const DebugPage({super.key});

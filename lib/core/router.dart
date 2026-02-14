@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import 'screens/about.dart';
-import 'screens/backup.dart';
-import 'screens/consume.dart';
-import 'screens/count.dart';
-import 'screens/debug.dart';
-import 'screens/product_form.dart';
-import 'screens/home.dart';
-import 'screens/journal.dart';
-import 'screens/shopping_list_edit.dart';
-import 'screens/stocks.dart';
-import 'screens/purchase.dart';
-import 'screens/customize.dart';
-import 'screens/stock.dart';
-import 'screens/settings.dart';
-import 'screens/shopping.dart';
-import 'screens/transfer.dart';
+import '../features/product/screens/form.dart';
+import '../features/settings/screens/about.dart';
+import '../features/settings/screens/backup.dart';
+import '../features/stock/screens/consume.dart';
+import '../features/stock/screens/count.dart';
+import '../features/settings/screens/debug.dart';
+import '../features/home/screens/home.dart';
+import '../features/journal/screens/list.dart';
+import '../features/shopping/screens/form.dart';
+import '../features/stock/screens/list.dart';
+import '../features/stock/screens/purchase.dart';
+import '../features/settings/screens/customize.dart';
+import '../features/stock/screens/detail.dart';
+import '../features/settings/screens/settings.dart';
+import '../features/shopping/screens/list.dart';
+import '../features/stock/screens/transfer.dart';
 
 final router = GoRouter(
   initialLocation: '/',
@@ -60,11 +60,11 @@ final router = GoRouter(
         ),
         GoRoute(
           path: 'shopping',
-          builder: (_, __) => ShoppingPage(),
+          builder: (_, __) => ShoppingListPage(),
           routes: [
             GoRoute(
               path: 'new',
-              builder: (_, __) => ShoppingListEditPage(),
+              builder: (_, __) => ShoppingFormPage(),
             ),
           ],
         ),

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/chips_text_field.dart';
-import '../widgets/custom_text_field.dart';
-import '../widgets/number_text_field.dart';
+import '../../../core/widgets/chips_text_field.dart';
+import '../../../core/widgets/custom_text_field.dart';
+import '../../../core/widgets/number_text_field.dart';
 
-class TransferPage extends StatelessWidget {
-  const TransferPage({super.key});
+class PurchasePage extends StatelessWidget {
+  const PurchasePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class TransferPage extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar.large(
-            title: Text('转移物品'),
+            title: Text('购买物品（快速操作）'),
           ),
           SliverList.list(
             children: [
@@ -38,7 +38,7 @@ class TransferPage extends StatelessWidget {
                 },
               ),
               ChipsTextField(
-                label: '从位置',
+                label: '位置',
                 trailing: IconButton.filledTonal(
                   onPressed: () {},
                   icon: Icon(Icons.map_outlined),
@@ -54,19 +54,9 @@ class TransferPage extends StatelessWidget {
                   print('[OMS] $value');
                 },
               ),
-              ChipsTextField(
-                label: '到位置',
-                trailing: IconButton.filledTonal(
-                  onPressed: () {},
-                  icon: Icon(Icons.map_outlined),
-                ),
-                defaultChip: 0,
-                chips: {
-                  0: 'Kitchen',
-                  1: 'Bedroom',
-                  2: 'Balcony',
-                  3: 'Living Room',
-                },
+              NumberTextField(
+                label: '价格 (CNY)',
+                defaultValue: 1.0,
                 onSaved: (value) {
                   print('[OMS] $value');
                 },
@@ -77,7 +67,7 @@ class TransferPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: Icon(Icons.swap_horiz_rounded),
+        child: Icon(Icons.shopping_cart_outlined),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endContained,
       bottomNavigationBar: BottomAppBar(
@@ -93,7 +83,7 @@ class TransferPage extends StatelessWidget {
             ),
             IconButton(
               onPressed: () {},
-              icon: Icon(Icons.clear_rounded),
+              icon: Icon(Icons.auto_awesome_outlined),
             ),
           ],
         ),

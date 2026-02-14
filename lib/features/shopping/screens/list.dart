@@ -3,8 +3,8 @@ import 'package:go_router/go_router.dart';
 
 import '../widgets/shopping_tile.dart';
 
-class ShoppingPage extends StatelessWidget {
-  const ShoppingPage({super.key});
+class ShoppingListPage extends StatelessWidget {
+  const ShoppingListPage({super.key});
 
   @override
   Widget build(BuildContext context) {

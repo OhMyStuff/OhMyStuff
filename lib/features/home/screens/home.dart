@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../data/local/store.dart';
+import '../../../core/data/local/store.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/custom_text_field.dart';
-import '../widgets/number_text_field.dart';
+import '../../../core/widgets/custom_text_field.dart';
+import '../../../core/widgets/number_text_field.dart';
 
 class CountPage extends StatelessWidget {
   const CountPage({super.key});

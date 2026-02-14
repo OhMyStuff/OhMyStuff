@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/chips_text_field.dart';
-import '../widgets/custom_text_field.dart';
-import '../widgets/number_text_field.dart';
+import '../../../core/widgets/custom_text_field.dart';
+import '../../../core/widgets/number_text_field.dart';
 
-class ConsumePage extends StatelessWidget {
-  const ConsumePage({super.key});
+class ShoppingFormPage extends StatelessWidget {
+  const ShoppingFormPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +12,7 @@ class ConsumePage extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar.large(
-            title: Text('消耗物品'),
+            title: Text('新建条目'),
           ),
           SliverList.list(
             children: [
@@ -37,19 +36,9 @@ class ConsumePage extends StatelessWidget {
                   print('[OMS] $value');
                 },
               ),
-              ChipsTextField(
-                label: '位置',
-                trailing: IconButton.filledTonal(
-                  onPressed: () {},
-                  icon: Icon(Icons.map_outlined),
-                ),
-                defaultChip: 0,
-                chips: {
-                  0: 'Kitchen',
-                  1: 'Bedroom',
-                  2: 'Balcony',
-                  3: 'Living Room',
-                },
+              CustomTextField(
+                label: '备注',
+                defaultValue: '这是一段描述',
                 onSaved: (value) {
                   print('[OMS] $value');
                 },
@@ -60,7 +49,7 @@ class ConsumePage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: Icon(Icons.arrow_outward_rounded),
+        child: Icon(Icons.save_rounded),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endContained,
       bottomNavigationBar: BottomAppBar(
@@ -68,15 +57,7 @@ class ConsumePage extends StatelessWidget {
           children: [
             IconButton(
               onPressed: () {},
-              icon: Icon(Icons.qr_code_scanner_rounded),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.nfc_rounded),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.clear_rounded),
+              icon: Icon(Icons.delete_rounded),
             ),
           ],
         ),

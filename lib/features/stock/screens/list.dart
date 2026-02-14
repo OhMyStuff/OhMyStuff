@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../providers/products.dart';
-import '../widgets/custom_tile.dart';
+import '../../product/providers/products.dart';
+import '../../../core/widgets/custom_tile.dart';
 
 class StocksPage extends ConsumerWidget {
   const StocksPage({super.key});
