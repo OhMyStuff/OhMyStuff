@@ -38,4 +38,4 @@ flutter:
   uses-material-design: true
 
 objectbox:
-  output_dir: data/local
+  output_dir: core/data/local

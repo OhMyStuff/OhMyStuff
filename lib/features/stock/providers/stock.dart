@@ -1,7 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../data/local/models/stock.dart';
-import '../data/local/store.dart';
+import '../../../core/data/local/models/stock.dart';
+import '../../../core/data/local/store.dart';
 
 part 'stock.g.dart';
 
