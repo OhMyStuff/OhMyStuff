@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/widgets/custom_text_field.dart';
-import '../../../core/widgets/number_text_field.dart';
+import '../../../core/widgets/form/custom_text_field.dart';
+import '../../../core/widgets/form/number_text_field.dart';
 
 class CountPage extends StatelessWidget {
-  const CountPage({super.key});
+  const CountPage({super.key, this.id});
+
+  final String? id;
 
   @override
   Widget build(BuildContext context) {
@@ -17,17 +19,9 @@ class CountPage extends StatelessWidget {
           SliverList.list(
             children: [
               CustomTextField(
-                label: '物品名称（必填）',
-                defaultValue: '测试产品',
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Required';
-                  }
-                  return null;
-                },
-                onSaved: (value) {
-                  print('[OMS] $value');
-                },
+                label: '物品名称',
+                readOnly: true,
+                defaultValue: id,
               ),
               NumberTextField(
                 label: '数量',
@@ -35,7 +29,7 @@ class CountPage extends StatelessWidget {
                 onSaved: (value) {
                   print('[OMS] $value');
                 },
-              ),
+              )
             ],
           ),
         ],

@@ -1,4 +1,0 @@
-global_options:
-  objectbox_generator:generator:
-    runs_before:
-      - riverpod_generator

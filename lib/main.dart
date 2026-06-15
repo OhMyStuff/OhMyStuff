@@ -7,8 +7,6 @@ import 'core/router.dart';
 import 'core/theme.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-
   runApp(
     ProviderScope(
       child: const MainApp(),

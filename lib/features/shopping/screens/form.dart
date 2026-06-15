@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/widgets/custom_text_field.dart';
-import '../../../core/widgets/number_text_field.dart';
+import '../../../core/widgets/form/custom_text_field.dart';
+import '../../../core/widgets/form/number_text_field.dart';
 
 class ShoppingFormPage extends StatelessWidget {
   const ShoppingFormPage({super.key});

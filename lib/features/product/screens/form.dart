@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../core/widgets/custom_text_field.dart';
-import '../../../core/widgets/chips_text_field.dart';
-import '../../../core/widgets/number_text_field.dart';
+import '../../../core/widgets/form/chips_text_field.dart';
+import '../../../core/widgets/form/custom_text_field.dart';
+import '../../../core/widgets/form/number_text_field.dart';
 
 class ProductFormPage extends HookConsumerWidget {
   const ProductFormPage({super.key});
@@ -12,11 +12,13 @@ class ProductFormPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final formKey = GlobalKey<FormState>();
+    final Map<String, dynamic> data = {};
 
     Future<void> onSubmit() async {
       if (formKey.currentState!.validate()) {
         try {
           formKey.currentState!.save();
+          print('[OMS] $data');
           if (!context.mounted) return;
           context.pop();
         } on Exception catch (e) {
@@ -44,57 +46,27 @@ class ProductFormPage extends HookConsumerWidget {
                     }
                     return null;
                   },
-                  onSaved: (value) {
-                    print('[OMS] $value');
-                  },
+                  onSaved: (value) => data['name'] = value,
+                ),
+                NumberTextField(
+                  label: '数量',
+                  defaultValue: 1.0,
+                  onSaved: (value) => data['quantity'] = value,
                 ),
                 ChipsTextField(
-                  label: '计量单位',
-                  trailing: IconButton.filledTonal(
-                    onPressed: () {},
-                    icon: Icon(Icons.interests_outlined),
-                  ),
-                  defaultChip: 0,
-                  chips: {
-                    0: '个',
-                    1: '克',
-                    2: '件',
-                    3: '包',
-                  },
-                  onSaved: (value) {
-                    print('[OMS] $value');
-                  },
-                ),
-                ChipsTextField(
-                  label: '默认位置',
+                  label: '位置',
                   trailing: IconButton.filledTonal(
                     onPressed: () {},
                     icon: Icon(Icons.map_outlined),
                   ),
-                  defaultChip: 0,
-                  chips: {
-                    0: 'Kitchen',
-                    1: 'Bedroom',
-                    2: 'Balcony',
-                    3: 'Living Room',
-                  },
-                  onSaved: (value) {
-                    print('[OMS] $value');
-                  },
-                ),
-                NumberTextField(
-                  label: '安全库存',
-                  defaultValue: 1.0,
-                  onSaved: (value) {
-                    print('[OMS] $value');
-                  },
-                ),
-                CustomTextField(
-                  label: '备注',
-                  defaultValue: '这是一段描述',
-                  onSaved: (value) {
-                    print('[OMS] $value');
-                  },
+                  defaultChip: '0',
+                  chips: [
+                    (id: '0', name: 'Kitchen'),
+                    (id: '1', name: 'Bedroom'),
+                    (id: '2', name: 'Balcony'),
+                    (id: '3', name: 'Living Room'),
+                  ],
+                  onSaved: (value) => data['location'] = value,
                 ),
               ],
             ),

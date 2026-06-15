@@ -6,7 +6,7 @@ class StockPage extends StatelessWidget {
     this.id,
   });
 
-  final int? id;
+  final String? id;
 
   @override
   Widget build(BuildContext context) {

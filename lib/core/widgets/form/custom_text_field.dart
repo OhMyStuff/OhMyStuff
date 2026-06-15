@@ -5,6 +5,7 @@ class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
     this.controller,
+    this.readOnly = false,
     this.label,
     this.defaultValue,
     this.keyboardType,
@@ -15,9 +16,11 @@ class CustomTextField extends StatelessWidget {
     this.validator,
     this.onChanged,
     this.onSaved,
+    this.onTap,
   });
 
   final TextEditingController? controller;
+  final bool readOnly;
   final String? label;
   final String? defaultValue;
   final TextInputType? keyboardType;
@@ -28,11 +31,13 @@ class CustomTextField extends StatelessWidget {
   final String? Function(String? value)? validator;
   final void Function(String value)? onChanged;
   final void Function(String? value)? onSaved;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     Widget result = TextFormField(
       controller: controller,
+      readOnly: readOnly,
       initialValue: defaultValue,
       decoration: InputDecoration(
         labelText: label,
@@ -44,6 +49,7 @@ class CustomTextField extends StatelessWidget {
       inputFormatters: inputFormatters,
       onChanged: onChanged,
       onSaved: onSaved,
+      onTap: onTap,
     );
 
     if (trailing != null) {

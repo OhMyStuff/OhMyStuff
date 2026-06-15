@@ -9,6 +9,8 @@ import '../features/stock/screens/count.dart';
 import '../features/settings/screens/debug.dart';
 import '../features/home/screens/home.dart';
 import '../features/journal/screens/list.dart';
+import '../features/lookup/models/lookup_operation.dart';
+import '../features/lookup/screens/lookup.dart';
 import '../features/shopping/screens/form.dart';
 import '../features/stock/screens/list.dart';
 import '../features/stock/screens/purchase.dart';
@@ -42,7 +44,7 @@ final router = GoRouter(
             GoRoute(
               path: ':id',
               builder: (_, state) {
-                final id = int.parse(state.pathParameters['id']!);
+                final id = state.pathParameters['id'];
                 return StockPage(id: id);
               },
             ),
@@ -70,19 +72,59 @@ final router = GoRouter(
         ),
         GoRoute(
           path: 'purchase',
-          builder: (_, __) => PurchasePage(),
+          builder: (_, __) =>
+              const LookupPage(operation: LookupOperation.purchase),
+          routes: [
+            GoRoute(
+              path: ':id',
+              builder: (_, state) {
+                final id = state.pathParameters['id'];
+                return PurchasePage(id: id);
+              },
+            ),
+          ],
         ),
         GoRoute(
           path: 'consume',
-          builder: (_, __) => ConsumePage(),
+          builder: (_, __) =>
+              const LookupPage(operation: LookupOperation.consume),
+          routes: [
+            GoRoute(
+              path: ':id',
+              builder: (_, state) {
+                final id = state.pathParameters['id'];
+                return ConsumePage(id: id);
+              },
+            ),
+          ],
         ),
         GoRoute(
           path: 'transfer',
-          builder: (_, __) => TransferPage(),
+          builder: (_, __) =>
+              const LookupPage(operation: LookupOperation.transfer),
+          routes: [
+            GoRoute(
+              path: ':id',
+              builder: (_, state) {
+                final id = state.pathParameters['id'];
+                return TransferPage(id: id);
+              },
+            ),
+          ],
         ),
         GoRoute(
           path: 'count',
-          builder: (_, __) => CountPage(),
+          builder: (_, __) =>
+              const LookupPage(operation: LookupOperation.count),
+          routes: [
+            GoRoute(
+              path: ':id',
+              builder: (_, state) {
+                final id = state.pathParameters['id'];
+                return CountPage(id: id);
+              },
+            ),
+          ],
         ),
         GoRoute(
           path: 'journal',

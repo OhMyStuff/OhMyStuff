@@ -2,11 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../product/providers/products.dart';
 import '../../../core/widgets/custom_tile.dart';
+import '../../product/providers/products.dart';
+import '../models/lookup_operation.dart';
+import '../widgets/search_header.dart';
 
-class StocksPage extends ConsumerWidget {
-  const StocksPage({super.key});
+class LookupPage extends ConsumerWidget {
+  const LookupPage({
+    super.key,
+    required this.operation,
+    this.multiSelect = false,
+  });
+
+  final LookupOperation operation;
+  final bool multiSelect;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -16,7 +25,11 @@ class StocksPage extends ConsumerWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar.large(
-            title: Text('库存总览'),
+            title: Text(operation.title),
+          ),
+          SliverPersistentHeader(
+            delegate: SearchHeaderDelegate(),
+            pinned: true,
           ),
           SliverList.builder(
             itemCount: products.length,
@@ -28,7 +41,7 @@ class StocksPage extends ConsumerWidget {
                 subtitle: [
                   Text(product.id),
                 ],
-                onTap: () => context.push('/stocks/${product.id}'),
+                onTap: () => context.push('${operation.path}/${product.id}'),
               );
             },
           ),
@@ -39,15 +52,20 @@ class StocksPage extends ConsumerWidget {
           children: [
             IconButton(
               onPressed: () {},
-              icon: Icon(Icons.search_rounded),
+              icon: Icon(Icons.qr_code_scanner_rounded),
             ),
             IconButton(
-              onPressed: () => context.push('/products/new'),
-              icon: Icon(Icons.add_rounded),
+              onPressed: () {},
+              icon: Icon(Icons.nfc_rounded),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.auto_awesome_outlined),
             ),
           ],
         ),
       ),
+      resizeToAvoidBottomInset: false,
     );
   }
 }

@@ -1,28 +1,24 @@
-import 'package:objectbox/objectbox.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'location.dart';
-import 'product.dart';
+part 'stock.freezed.dart';
+part 'stock.g.dart';
 
-@Entity()
-class Stock {
-  Stock({
-    this.id = 0,
-    this.quantity = 0.0,
-    this.expirationDate,
-    this.notes,
-  });
+@freezed
+abstract class Stock with _$Stock {
+  const factory Stock({
+    required String id,
+    required String productId,
+    required String locationId,
+    @Default(1.0) double quantity,
+    @Default(0.0) double unitPrice,
+    DateTime? manufacturingDate,
+    DateTime? purchaseDate,
+    DateTime? expirationDate,
+    String? notes,
+    @Default(0) int priority,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+  }) = _Stock;
 
-  @Id()
-  int id;
-
-  final product = ToOne<Product>();
-
-  final location = ToOne<Location>();
-
-  double quantity;
-
-  @Property(type: PropertyType.dateUtc)
-  DateTime? expirationDate;
-
-  String? notes;
+  factory Stock.fromJson(Map<String, Object?> json) => _$StockFromJson(json);
 }

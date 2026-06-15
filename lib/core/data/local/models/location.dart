@@ -1,28 +1,20 @@
-import 'package:objectbox/objectbox.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'stock.dart';
+part 'location.freezed.dart';
+part 'location.g.dart';
 
-@Entity()
-class Location {
-  Location(
-    this.name, {
-    this.id = 0,
-    this.description,
-  });
+@freezed
+abstract class Location with _$Location {
+  const factory Location({
+    required String id,
+    required String name,
+    String? parentLocationId,
+    String? description,
+    @Default(0) int priority,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+  }) = _Location;
 
-  @Id()
-  int id;
-
-  @Unique()
-  String name;
-
-  @Backlink('location')
-  final stocks = ToMany<Stock>();
-
-  final parent = ToOne<Location>();
-
-  @Backlink('parent')
-  final children = ToMany<Location>();
-
-  String? description;
+  factory Location.fromJson(Map<String, Object?> json) =>
+      _$LocationFromJson(json);
 }

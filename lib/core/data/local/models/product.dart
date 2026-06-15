@@ -1,39 +1,25 @@
-import 'package:objectbox/objectbox.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'location.dart';
-import 'stock.dart';
+part 'product.freezed.dart';
+part 'product.g.dart';
 
-@Entity()
-class Product {
-  Product(
-    this.name, {
-    this.id = 0,
-    required this.sku,
-    this.defaultShelfLifeDays = 0,
-    this.safetyStock = 0.0,
-    this.description,
-    this.isActive = true,
-  });
+@freezed
+abstract class Product with _$Product {
+  const factory Product({
+    required String id,
+    String? sku,
+    required String name,
+    required String unitId,
+    String? categoryId,
+    String? defaultLocationId,
+    int? defaultDueDays,
+    double? reorderPoint,
+    String? description,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    String? attributes,
+  }) = _Product;
 
-  @Id()
-  int id;
-
-  @Unique()
-  String sku;
-
-  @Unique()
-  String name;
-
-  @Backlink('product')
-  final stocks = ToMany<Stock>();
-
-  final defaultLocation = ToOne<Location>();
-
-  int defaultShelfLifeDays;
-
-  double safetyStock;
-
-  String? description;
-
-  bool isActive;
+  factory Product.fromJson(Map<String, Object?> json) =>
+      _$ProductFromJson(json);
 }

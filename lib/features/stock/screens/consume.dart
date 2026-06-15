@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/widgets/chips_text_field.dart';
-import '../../../core/widgets/custom_text_field.dart';
-import '../../../core/widgets/number_text_field.dart';
+import '../../../core/widgets/form/chips_text_field.dart';
+import '../../../core/widgets/form/custom_text_field.dart';
+import '../../../core/widgets/form/number_text_field.dart';
 
 class ConsumePage extends StatelessWidget {
-  const ConsumePage({super.key});
+  const ConsumePage({super.key, this.id});
+
+  final String? id;
 
   @override
   Widget build(BuildContext context) {
@@ -18,17 +20,9 @@ class ConsumePage extends StatelessWidget {
           SliverList.list(
             children: [
               CustomTextField(
-                label: '物品名称（必填）',
-                defaultValue: '测试产品',
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Required';
-                  }
-                  return null;
-                },
-                onSaved: (value) {
-                  print('[OMS] $value');
-                },
+                label: '物品名称',
+                readOnly: true,
+                defaultValue: id,
               ),
               NumberTextField(
                 label: '数量',
@@ -43,13 +37,13 @@ class ConsumePage extends StatelessWidget {
                   onPressed: () {},
                   icon: Icon(Icons.map_outlined),
                 ),
-                defaultChip: 0,
-                chips: {
-                  0: 'Kitchen',
-                  1: 'Bedroom',
-                  2: 'Balcony',
-                  3: 'Living Room',
-                },
+                defaultChip: '0',
+                chips: [
+                  (id: '0', name: 'Kitchen'),
+                  (id: '1', name: 'Bedroom'),
+                  (id: '2', name: 'Balcony'),
+                  (id: '3', name: 'Living Room'),
+                ],
                 onSaved: (value) {
                   print('[OMS] $value');
                 },

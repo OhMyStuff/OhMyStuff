@@ -3,62 +3,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/data/local/models/location.dart';
 import '../../../core/data/local/models/product.dart';
-import '../../../core/data/local/store.dart';
 
 class DebugPage extends ConsumerWidget {
   const DebugPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final List<Product> products = [
-      Product(
-        'Soda',
-        sku: 'soda-001',
-      ),
-      Product(
-        'Cookies',
-        sku: 'cookies-002',
-      ),
-      Product(
-        'Chocolate',
-        sku: 'chocolate-003',
-      ),
-      Product(
-        'Eggs',
-        sku: 'eggs-004',
-      ),
-      Product(
-        'Yogurt',
-        sku: 'yogurt-005',
-      ),
-      Product(
-        'Noodles',
-        sku: 'noodles-006',
-      ),
-      Product(
-        'Cheese',
-        sku: 'cheese-007',
-      ),
-      Product(
-        'Cucumber',
-        sku: 'cucumber-008',
-      ),
-      Product(
-        'Tomato',
-        sku: 'tomato-009',
-      ),
-      Product(
-        'Milk',
-        sku: 'milk-010',
-      ),
-    ];
+    final List<Product> products = [];
 
-    final List<Location> locations = [
-      Location('Kitchen'),
-      Location('Bedroom'),
-      Location('Balcony'),
-      Location('Living Room'),
-    ];
+    final List<Location> locations = [];
 
     return Scaffold(
       body: CustomScrollView(
@@ -73,12 +26,7 @@ class DebugPage extends ConsumerWidget {
                 spacing: 4,
                 children: [
                   FilledButton.tonal(
-                    onPressed: () async {
-                      final store = await ref.read(objectboxProvider.future);
-
-                      store.box<Product>().putMany(products);
-                      store.box<Location>().putMany(locations);
-                    },
+                    onPressed: () async {},
                     child: Text('添加测试数据'),
                   ),
                 ],
