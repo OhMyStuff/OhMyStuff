@@ -5,9 +5,10 @@ class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
     this.controller,
+    this.autofocus = false,
     this.readOnly = false,
+    this.initialValue,
     this.label,
-    this.defaultValue,
     this.keyboardType,
     this.inputFormatters,
     this.trailing,
@@ -20,9 +21,10 @@ class CustomTextField extends StatelessWidget {
   });
 
   final TextEditingController? controller;
+  final bool autofocus;
   final bool readOnly;
+  final String? initialValue;
   final String? label;
-  final String? defaultValue;
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
   final Widget? trailing;
@@ -37,8 +39,9 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget result = TextFormField(
       controller: controller,
+      autofocus: autofocus,
       readOnly: readOnly,
-      initialValue: defaultValue,
+      initialValue: initialValue,
       decoration: InputDecoration(
         labelText: label,
         errorText: error,

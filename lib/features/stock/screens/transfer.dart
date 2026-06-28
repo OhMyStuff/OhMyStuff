@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/widgets/form/chips_text_field.dart';
-import '../../../core/widgets/form/custom_text_field.dart';
-import '../../../core/widgets/form/number_text_field.dart';
+import '../../../core/widgets/form/base/custom_text_field.dart';
+import '../../../core/widgets/form/base/number_text_field.dart';
 
 class TransferPage extends StatelessWidget {
   const TransferPage({super.key, this.id});
@@ -22,45 +21,10 @@ class TransferPage extends StatelessWidget {
               CustomTextField(
                 label: '物品名称',
                 readOnly: true,
-                defaultValue: id,
               ),
               NumberTextField(
                 label: '数量',
                 defaultValue: 1.0,
-                onSaved: (value) {
-                  print('[OMS] $value');
-                },
-              ),
-              ChipsTextField(
-                label: '从位置',
-                trailing: IconButton.filledTonal(
-                  onPressed: () {},
-                  icon: Icon(Icons.map_outlined),
-                ),
-                defaultChip: '0',
-                chips: [
-                  (id: '0', name: 'Kitchen'),
-                  (id: '1', name: 'Bedroom'),
-                  (id: '2', name: 'Balcony'),
-                  (id: '3', name: 'Living Room'),
-                ],
-                onSaved: (value) {
-                  print('[OMS] $value');
-                },
-              ),
-              ChipsTextField(
-                label: '到位置',
-                trailing: IconButton.filledTonal(
-                  onPressed: () {},
-                  icon: Icon(Icons.map_outlined),
-                ),
-                defaultChip: '0',
-                chips: [
-                  (id: '0', name: 'Kitchen'),
-                  (id: '1', name: 'Bedroom'),
-                  (id: '2', name: 'Balcony'),
-                  (id: '3', name: 'Living Room'),
-                ],
                 onSaved: (value) {
                   print('[OMS] $value');
                 },

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../features/location/screens/lookup.dart';
 import '../features/product/screens/form.dart';
 import '../features/settings/screens/about.dart';
 import '../features/settings/screens/backup.dart';
@@ -9,8 +10,8 @@ import '../features/stock/screens/count.dart';
 import '../features/settings/screens/debug.dart';
 import '../features/home/screens/home.dart';
 import '../features/journal/screens/list.dart';
-import '../features/lookup/models/lookup_operation.dart';
-import '../features/lookup/screens/lookup.dart';
+import '../features/product/models/operation.dart';
+import '../features/product/screens/lookup.dart';
 import '../features/shopping/screens/form.dart';
 import '../features/stock/screens/list.dart';
 import '../features/stock/screens/purchase.dart';
@@ -34,6 +35,16 @@ final router = GoRouter(
       builder: (_, __) => HomePage(),
       routes: [
         GoRoute(
+          path: 'products',
+          builder: (_, __) => StocksPage(),
+          routes: [
+            GoRoute(
+              path: 'new',
+              builder: (_, __) => ProductFormPage(),
+            ),
+          ],
+        ),
+        GoRoute(
           path: 'stocks',
           builder: (_, __) => StocksPage(),
           routes: [
@@ -51,13 +62,20 @@ final router = GoRouter(
           ],
         ),
         GoRoute(
-          path: 'products',
+          path: 'locations',
           builder: (_, __) => StocksPage(),
           routes: [
             GoRoute(
-              path: 'new',
-              builder: (_, __) => ProductFormPage(),
+              path: 'lookup',
+              builder: (_, __) => LocationLookupPage(),
             ),
+            // GoRoute(
+            //   path: ':id',
+            //   builder: (_, state) {
+            //     // final id = state.pathParameters['id'];
+            //     // return LocationPage(id: id);
+            //   },
+            // ),
           ],
         ),
         GoRoute(
@@ -73,7 +91,7 @@ final router = GoRouter(
         GoRoute(
           path: 'purchase',
           builder: (_, __) =>
-              const LookupPage(operation: LookupOperation.purchase),
+              const ProductLookupPage(operation: LookupOperation.purchase),
           routes: [
             GoRoute(
               path: ':id',
@@ -87,7 +105,7 @@ final router = GoRouter(
         GoRoute(
           path: 'consume',
           builder: (_, __) =>
-              const LookupPage(operation: LookupOperation.consume),
+              const ProductLookupPage(operation: LookupOperation.consume),
           routes: [
             GoRoute(
               path: ':id',
@@ -101,7 +119,7 @@ final router = GoRouter(
         GoRoute(
           path: 'transfer',
           builder: (_, __) =>
-              const LookupPage(operation: LookupOperation.transfer),
+              const ProductLookupPage(operation: LookupOperation.transfer),
           routes: [
             GoRoute(
               path: ':id',
@@ -115,7 +133,7 @@ final router = GoRouter(
         GoRoute(
           path: 'count',
           builder: (_, __) =>
-              const LookupPage(operation: LookupOperation.count),
+              const ProductLookupPage(operation: LookupOperation.count),
           routes: [
             GoRoute(
               path: ':id',

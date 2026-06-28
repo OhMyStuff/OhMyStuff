@@ -4,11 +4,11 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/widgets/custom_tile.dart';
 import '../../product/providers/products.dart';
-import '../models/lookup_operation.dart';
-import '../widgets/search_header.dart';
+import '../../product/models/operation.dart';
+import '../../../core/widgets/search_header.dart';
 
-class LookupPage extends ConsumerWidget {
-  const LookupPage({
+class ProductLookupPage extends ConsumerWidget {
+  const ProductLookupPage({
     super.key,
     required this.operation,
     this.multiSelect = false,
@@ -28,7 +28,9 @@ class LookupPage extends ConsumerWidget {
             title: Text(operation.title),
           ),
           SliverPersistentHeader(
-            delegate: SearchHeaderDelegate(),
+            delegate: SearchHeaderDelegate(
+              label: '搜索产品',
+            ),
             pinned: true,
           ),
           SliverList.builder(

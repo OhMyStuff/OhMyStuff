@@ -85,4 +85,14 @@ class Locations extends _$Locations {
 
     return result;
   }
+
+  List<Location> search(String query) {
+    if (query.isEmpty) return state;
+    final lowerQuery = query.toLowerCase();
+
+    return state.where((location) {
+      return location.name.toLowerCase().contains(lowerQuery) ||
+          (location.description?.toLowerCase().contains(lowerQuery) ?? false);
+    }).toList();
+  }
 }

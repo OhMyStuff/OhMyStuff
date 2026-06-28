@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/widgets/form/custom_text_field.dart';
-import '../../../core/widgets/form/number_text_field.dart';
+import '../../../core/widgets/form/base/custom_text_field.dart';
+import '../../../core/widgets/form/base/number_text_field.dart';
 
 class CountPage extends StatelessWidget {
   const CountPage({super.key, this.id});
@@ -21,7 +21,6 @@ class CountPage extends StatelessWidget {
               CustomTextField(
                 label: '物品名称',
                 readOnly: true,
-                defaultValue: id,
               ),
               NumberTextField(
                 label: '数量',

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/widgets/form/custom_text_field.dart';
-import '../../../core/widgets/form/number_text_field.dart';
+import '../../../core/widgets/form/base/custom_text_field.dart';
+import '../../../core/widgets/form/base/number_text_field.dart';
 
 class ShoppingFormPage extends StatelessWidget {
   const ShoppingFormPage({super.key});
@@ -18,7 +18,6 @@ class ShoppingFormPage extends StatelessWidget {
             children: [
               CustomTextField(
                 label: '物品名称（必填）',
-                defaultValue: '测试产品',
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Required';
@@ -38,7 +37,6 @@ class ShoppingFormPage extends StatelessWidget {
               ),
               CustomTextField(
                 label: '备注',
-                defaultValue: '这是一段描述',
                 onSaved: (value) {
                   print('[OMS] $value');
                 },

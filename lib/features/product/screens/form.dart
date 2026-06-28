@@ -2,79 +2,67 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../core/widgets/form/chips_text_field.dart';
-import '../../../core/widgets/form/custom_text_field.dart';
-import '../../../core/widgets/form/number_text_field.dart';
+import '../../../core/widgets/form/base/chips_picker_field.dart';
+import '../../../core/widgets/form/base/custom_text_field.dart';
+import '../providers/form.dart';
 
 class ProductFormPage extends HookConsumerWidget {
   const ProductFormPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final formKey = GlobalKey<FormState>();
-    final Map<String, dynamic> data = {};
-
-    Future<void> onSubmit() async {
-      if (formKey.currentState!.validate()) {
-        try {
-          formKey.currentState!.save();
-          print('[OMS] $data');
-          if (!context.mounted) return;
-          context.pop();
-        } on Exception catch (e) {
-          print('[OMS] $e');
-        }
-      }
-    }
+    final state = ref.watch(productFormProvider);
+    final notifier = ref.read(productFormProvider.notifier);
 
     return Scaffold(
-      body: Form(
-        key: formKey,
-        child: CustomScrollView(
-          slivers: [
-            SliverAppBar.large(
-              title: Text('创建物品'),
-            ),
-            SliverList.list(
-              children: [
-                CustomTextField(
-                  label: '物品名称（必填）',
-                  defaultValue: '测试产品',
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Required';
-                    }
-                    return null;
-                  },
-                  onSaved: (value) => data['name'] = value,
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar.large(
+            title: Text('创建物品'),
+          ),
+          SliverList.list(
+            children: [
+              CustomTextField(
+                label: '名称',
+                initialValue: state.name,
+                onChanged: (value) {
+                  notifier.updateName(value);
+                },
+              ),
+              ChipsPickerField(
+                label: '选择位置',
+                trailing: IconButton.filledTonal(
+                  onPressed: () {},
+                  icon: Icon(Icons.qr_code_scanner_rounded),
                 ),
-                NumberTextField(
-                  label: '数量',
-                  defaultValue: 1.0,
-                  onSaved: (value) => data['quantity'] = value,
-                ),
-                ChipsTextField(
-                  label: '位置',
-                  trailing: IconButton.filledTonal(
-                    onPressed: () {},
-                    icon: Icon(Icons.map_outlined),
-                  ),
-                  defaultChip: '0',
-                  chips: [
-                    (id: '0', name: 'Kitchen'),
-                    (id: '1', name: 'Bedroom'),
-                    (id: '2', name: 'Balcony'),
-                    (id: '3', name: 'Living Room'),
-                  ],
-                  onSaved: (value) => data['location'] = value,
-                ),
-              ],
-            ),
-          ],
-        ),
+                value: state.defaultLocation,
+                chips: [
+                  (id: 'c1000001-0001-4000-a000-000000000001', name: '厨房'),
+                  (id: 'c1000001-0001-4000-a000-000000000002', name: '客厅'),
+                  (id: 'c1000001-0001-4000-a000-000000000003', name: '主卧'),
+                ],
+                onPick: () async {
+                  final result = await context.push<ChipRecord?>(
+                    '/locations/lookup',
+                  );
+                  if (result != null) {
+                    notifier.updateDefaultLocation(result);
+                  }
+                },
+                onChanged: (value) {
+                  notifier.updateDefaultLocation(value);
+                },
+              ),
+            ],
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: onSubmit,
+        onPressed: () {
+          if (notifier.submit()) {
+            context.pop();
+          }
+        },
         child: Icon(Icons.save_rounded),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endContained,

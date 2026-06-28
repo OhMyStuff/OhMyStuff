@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 
 class SearchHeaderDelegate extends SliverPersistentHeaderDelegate {
+  const SearchHeaderDelegate({
+    required this.label,
+    this.onChanged,
+  });
+
+  final String label;
+  final ValueChanged<String>? onChanged;
+
   @override
   double get minExtent => 64;
 
@@ -24,8 +32,9 @@ class SearchHeaderDelegate extends SliverPersistentHeaderDelegate {
           alignment: Alignment.bottomCenter,
           child: TextField(
             autofocus: true,
+            onChanged: onChanged,
             decoration: InputDecoration(
-              hintText: '搜索产品',
+              hintText: label,
               filled: true,
               fillColor: theme.colorScheme.surfaceContainerHighest,
             ),
